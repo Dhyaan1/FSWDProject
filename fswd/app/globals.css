@@ -1,42 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@layer base {
-  :root {
-    --background: 200 20% 98%;
-    --btn-background: 200 10% 91%;
-    --btn-background-hover: 200 10% 89%;
-    --foreground: 200 50% 3%;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 200 50% 3%;
-      --btn-background: 200 10% 9%;
-      --btn-background-hover: 200 10% 12%;
-      --foreground: 200 20% 96%;
-    }
-  }
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: black;
 }
 
-@layer base {
-  * {
-    @apply border-foreground/20;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 10px;
 }
 
-.animate-in {
-  animation: animateIn 0.3s ease 0.15s both;
+body {
+  font-family: var(--font-archivo), sans-serif;
 }
 
-@keyframes animateIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-archivo), sans-serif;
 }
