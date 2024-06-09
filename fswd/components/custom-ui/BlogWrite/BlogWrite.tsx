@@ -57,7 +57,7 @@ export default function BlogWrite() {
     <div className="w-full max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
       <Link
         href="/protected"
-        className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
+        className="absolute left-0 top-0 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
