@@ -1,4 +1,3 @@
-import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { Archivo } from "next/font/google";
 
@@ -14,8 +13,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "Azayd IT Consulting Services",
+  description: "Elevate Your IT with Our Consultancy Services",
 };
 
 export default function RootLayout({
@@ -25,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={archivo.variable}>{children}</body>
+      <body className={`${archivo.variable} relative`}>{children}</body>
     </html>
   );
 }
