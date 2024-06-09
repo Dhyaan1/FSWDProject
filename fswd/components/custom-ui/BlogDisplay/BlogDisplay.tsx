@@ -164,10 +164,11 @@ export default function BlogDisplay(props) {
               {filteredPosts?.map((post) => (
                 <div
                   key={post?.id}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer"
+                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden cursor-pointer"
                   onClick={() => handlePostClick(post)}
                 >
                   <img
+                    loading="lazy"
                     src={post?.image ? post?.image : "/placeholder.svg"}
                     alt={post?.title}
                     width={640}

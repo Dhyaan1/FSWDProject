@@ -35,11 +35,12 @@ export default function AboutUsIntro() {
               </div>
             </div>
             <img
-              src="/placeholder.svg"
+              loading="lazy"
+              src="/StockOfficePics/stockphoto4.jpg"
               width="550"
               height="550"
               alt="About"
-              className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+              className="mx-auto aspect-[3/2] overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
             />
           </div>
         </div>

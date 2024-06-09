@@ -40,9 +40,10 @@ export default function BlogContentShowModal({
           delay: 0,
         }}
         exit="exit"
-        className="w-full max-w-3xl max-md:max-w-xl max-sm:max-w-md max-sm:max-h-[97svh] rounded-3xl bg-white border border-gray-200 shadow-md"
+        className="overflow-hidden w-full max-w-3xl max-md:max-w-xl max-sm:max-w-md max-sm:max-h-[97svh] rounded-3xl bg-white border border-gray-200 shadow-md"
       >
         <img
+          loading="lazy"
           src={
             SelectedPostData?.image
               ? SelectedPostData?.image
@@ -65,7 +66,7 @@ export default function BlogContentShowModal({
               </div>
             </div>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 max-h-[200px]">
             {SelectedPostData?.category && (
               <div className="bg-gray-200 px-2 py-1 rounded-md text-gray-600">
                 {SelectedPostData?.category}
@@ -83,7 +84,7 @@ export default function BlogContentShowModal({
           <div className="max-sm:hidden">
             <p>{SelectedPostData?.excerpt}</p>
           </div>
-          <div className="prose prose-sm dark:prose-invert max-h-[200px]  overflow-auto">
+          <div className="prose prose-sm dark:prose-invert max-h-[200px] overflow-auto">
             <p>{SelectedPostData?.content}</p>
           </div>
         </div>

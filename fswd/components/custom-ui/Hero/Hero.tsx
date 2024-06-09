@@ -33,10 +33,11 @@ export default function Hero() {
                 </div>
               </div>
               <img
+                loading="lazy"
                 alt="Hero"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-bottom sm:w-full lg:order-last lg:aspect-square"
+                className="mx-auto aspect-video object-cover overflow-hidden rounded-xl object-bottom sm:w-full lg:order-last lg:aspect-square"
                 height="550"
-                src="/placeholder.svg"
+                src="/StockOfficePics/stockphoto3.jpg"
                 width="550"
               />
             </div>
@@ -89,10 +90,11 @@ export default function Hero() {
                 </div>
               </div>
               <img
+                loading="lazy"
                 alt="Services"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
                 height="310"
-                src="/placeholder.svg"
+                src="/StockOfficePics/istockphoto.jpg"
                 width="550"
               />
             </div>

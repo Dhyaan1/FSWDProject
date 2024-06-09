@@ -25,7 +25,8 @@ export default function TeamProfiles() {
             <div className="grid gap-4">
               <div className="flex flex-col items-center">
                 <img
-                  src="/placeholder.svg"
+                  loading="lazy"
+                  src="/StockOfficePics/guy1.jpg"
                   width="150"
                   height="150"
                   alt="John Doe"
@@ -48,7 +49,8 @@ export default function TeamProfiles() {
             <div className="grid gap-4">
               <div className="flex flex-col items-center">
                 <img
-                  src="/placeholder.svg"
+                  loading="lazy"
+                  src="/StockOfficePics/girl1.jpg"
                   width="150"
                   height="150"
                   alt="Jane Smith"
@@ -71,7 +73,8 @@ export default function TeamProfiles() {
             <div className="grid gap-4">
               <div className="flex flex-col items-center">
                 <img
-                  src="/placeholder.svg"
+                  loading="lazy"
+                  src="/StockOfficePics/guy2.jpg"
                   width="150"
                   height="150"
                   alt="Michael Johnson"

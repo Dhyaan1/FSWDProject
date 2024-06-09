@@ -17,6 +17,14 @@ export default function ServiceDetails() {
                 Our team of experts provides a wide range of IT consultancy
                 services to help your business thrive in the digital age.
               </p>
+              <img
+                loading="lazy"
+                src="/StockOfficePics/pexelscase2.jpg"
+                width="550"
+                height="310"
+                alt="Services"
+                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+              />
               <div className="grid gap-4">
                 <div className="grid gap-1">
                   <h3 className="text-xl font-bold">IT Strategy</h3>
@@ -39,20 +47,19 @@ export default function ServiceDetails() {
                     </li>
                   </ul>
                   <div className="mt-4">
-                    <h4 className="text-lg font-bold">
-                      Case Study: Azayad Corp
-                    </h4>
-                    <div className="flex gap-4">
+                    <h4 className="text-lg font-bold">Case Study: Acme Corp</h4>
+                    <div className="flex gap-4 max-sm:flex-wrap">
                       <img
-                        src="/placeholder.svg"
+                        loading="lazy"
+                        src="/StockOfficePics/pexelscase1.jpg"
                         width={200}
                         height={150}
-                        alt="Azayad Corp Case Study"
-                        className="rounded-lg object-cover"
+                        alt="Acme Corp Case Study"
+                        className="rounded-xl object-cover"
                       />
                       <p className="text-gray-500 dark:text-gray-400">
-                        Azayad Corp, a rapidly growing e-commerce company, came
-                        to us with the challenge of aligning their IT
+                        Acme Corp, a rapidly growing e-commerce company, came to
+                        us with the challenge of aligning their IT
                         infrastructure and systems to support their ambitious
                         expansion plans. Our team conducted a thorough
                         assessment of their existing technology landscape and
@@ -61,7 +68,7 @@ export default function ServiceDetails() {
                         scale efficiently and securely. We helped them implement
                         a cloud-based infrastructure, streamline their
                         e-commerce platform, and automate key business
-                        processes. As a result, Azayad Corp was able to expand
+                        processes. As a result, Acme Corp was able to expand
                         into new markets, improve customer experience, and
                         achieve a 25% increase in operational efficiency.
                       </p>
@@ -98,13 +105,14 @@ export default function ServiceDetails() {
                     <h4 className="text-lg font-bold">
                       Case Study: Globex Corporation
                     </h4>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 max-sm:flex-wrap">
                       <img
-                        src="/placeholder.svg"
+                        loading="lazy"
+                        src="/StockOfficePics/pexelscase3.jpg"
                         width={200}
                         height={150}
                         alt="Globex Corporation Case Study"
-                        className="rounded-lg object-cover"
+                        className="rounded-xl object-cover"
                       />
                       <p className="text-gray-500 dark:text-gray-400">
                         Globex Corporation, a leading manufacturing
@@ -146,13 +154,14 @@ export default function ServiceDetails() {
                   </ul>
                   <div className="mt-4">
                     <h4 className="text-lg font-bold">Case Study: Startup X</h4>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 max-sm:flex-wrap">
                       <img
-                        src="/placeholder.svg"
+                        loading="lazy"
+                        src="/StockOfficePics/pexelscase4.jpg"
                         width={200}
                         height={150}
                         alt="Startup X Case Study"
-                        className="rounded-lg object-cover"
+                        className="rounded-xl object-cover"
                       />
                       <p className="text-gray-500 dark:text-gray-400">
                         Startup X, a fast-growing technology company, needed to
@@ -193,18 +202,19 @@ export default function ServiceDetails() {
                   </ul>
                   <div className="mt-4">
                     <h4 className="text-lg font-bold">
-                      Case Study: Azayad Retail
+                      Case Study: Acme Retail
                     </h4>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 max-sm:flex-wrap">
                       <img
-                        src="/placeholder.svg"
+                        loading="lazy"
+                        src="/StockOfficePics/pexelscase5.jpg"
                         width={200}
                         height={150}
-                        alt="Azayad Retail Case Study"
-                        className="rounded-lg object-cover"
+                        alt="Acme Retail Case Study"
+                        className="rounded-xl object-cover"
                       />
                       <p className="text-gray-500 dark:text-gray-400">
-                        Azayad Retail, a growing retail chain, was struggling to
+                        Acme Retail, a growing retail chain, was struggling to
                         manage their IT infrastructure and support their
                         distributed workforce. They partnered with us to
                         implement our managed IT services solution. Our team
@@ -213,23 +223,16 @@ export default function ServiceDetails() {
                         IT staff to focus on more strategic initiatives. We also
                         implemented robust cybersecurity measures, including
                         advanced threat detection and incident response
-                        capabilities. As a result, Azayad Retail experienced a
-                        40% reduction in IT-related downtime, a 25% improvement
-                        in employee productivity, and a significant enhancement
-                        in their overall data security posture.
+                        capabilities. As a result, Acme Retail experienced a 40%
+                        reduction in IT-related downtime, a 25% improvement in
+                        employee productivity, and a significant enhancement in
+                        their overall data security posture.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <img
-              src="/placeholder.svg"
-              width="550"
-              height="310"
-              alt="Services"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-            />
           </div>
         </div>
       </section>
