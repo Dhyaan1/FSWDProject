@@ -24,17 +24,20 @@ export default function ContactUs() {
       },
     ]);
 
-    revalidatePath("/blogging");
+    revalidatePath("/");
     if (insertError) {
       console.error("Error publishing post:", insertError.message);
       return;
     }
 
-    return redirect("/protected");
+    return redirect("/refresh");
   };
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+    <section
+      id="ContactUs"
+      className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+    >
       <div className="container grid grid-cols-1 gap-8 px-4 md:grid-cols-2 md:gap-12 md:px-6 lg:gap-16">
         <div className="space-y-6">
           <div className="space-y-2">
@@ -115,7 +118,7 @@ export default function ContactUs() {
             </div>
             <SubmitButton
               formAction={contact}
-              className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
+              className="bg-[#00b894] text-white rounded-md px-4 py-2 text-foreground mb-2"
               pendingText="Publishing..."
             >
               Submit
@@ -138,7 +141,7 @@ export default function ContactUs() {
               <div>
                 <h3 className="text-lg font-semibold">Email</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  info@itconsultancy.com
+                  careers@company.com
                 </p>
               </div>
             </div>
@@ -156,7 +159,8 @@ export default function ContactUs() {
           </div>
           <div className="flex items-center gap-4">
             <Link
-              href="#"
+              href="https://www.varconstech.com/"
+              target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
@@ -164,7 +168,8 @@ export default function ContactUs() {
               <span className="sr-only">Facebook</span>
             </Link>
             <Link
-              href="#"
+              href="https://www.varconstech.com/"
+              target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
@@ -172,7 +177,8 @@ export default function ContactUs() {
               <span className="sr-only">Twitter</span>
             </Link>
             <Link
-              href="#"
+              href="https://www.linkedin.com/company/varcons-technologies/?originalSubdomain=in"
+              target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
@@ -180,7 +186,8 @@ export default function ContactUs() {
               <span className="sr-only">LinkedIn</span>
             </Link>
             <Link
-              href="#"
+              href="https://www.varconstech.com/"
+              target="_blank"
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >

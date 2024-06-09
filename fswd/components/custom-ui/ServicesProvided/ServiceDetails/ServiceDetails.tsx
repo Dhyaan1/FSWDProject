@@ -39,18 +39,20 @@ export default function ServiceDetails() {
                     </li>
                   </ul>
                   <div className="mt-4">
-                    <h4 className="text-lg font-bold">Case Study: Acme Corp</h4>
+                    <h4 className="text-lg font-bold">
+                      Case Study: Azayad Corp
+                    </h4>
                     <div className="flex gap-4">
                       <img
                         src="/placeholder.svg"
                         width={200}
                         height={150}
-                        alt="Acme Corp Case Study"
+                        alt="Azayad Corp Case Study"
                         className="rounded-lg object-cover"
                       />
                       <p className="text-gray-500 dark:text-gray-400">
-                        Acme Corp, a rapidly growing e-commerce company, came to
-                        us with the challenge of aligning their IT
+                        Azayad Corp, a rapidly growing e-commerce company, came
+                        to us with the challenge of aligning their IT
                         infrastructure and systems to support their ambitious
                         expansion plans. Our team conducted a thorough
                         assessment of their existing technology landscape and
@@ -59,7 +61,7 @@ export default function ServiceDetails() {
                         scale efficiently and securely. We helped them implement
                         a cloud-based infrastructure, streamline their
                         e-commerce platform, and automate key business
-                        processes. As a result, Acme Corp was able to expand
+                        processes. As a result, Azayad Corp was able to expand
                         into new markets, improve customer experience, and
                         achieve a 25% increase in operational efficiency.
                       </p>
@@ -191,18 +193,18 @@ export default function ServiceDetails() {
                   </ul>
                   <div className="mt-4">
                     <h4 className="text-lg font-bold">
-                      Case Study: Acme Retail
+                      Case Study: Azayad Retail
                     </h4>
                     <div className="flex gap-4">
                       <img
                         src="/placeholder.svg"
                         width={200}
                         height={150}
-                        alt="Acme Retail Case Study"
+                        alt="Azayad Retail Case Study"
                         className="rounded-lg object-cover"
                       />
                       <p className="text-gray-500 dark:text-gray-400">
-                        Acme Retail, a growing retail chain, was struggling to
+                        Azayad Retail, a growing retail chain, was struggling to
                         manage their IT infrastructure and support their
                         distributed workforce. They partnered with us to
                         implement our managed IT services solution. Our team
@@ -211,10 +213,10 @@ export default function ServiceDetails() {
                         IT staff to focus on more strategic initiatives. We also
                         implemented robust cybersecurity measures, including
                         advanced threat detection and incident response
-                        capabilities. As a result, Acme Retail experienced a 40%
-                        reduction in IT-related downtime, a 25% improvement in
-                        employee productivity, and a significant enhancement in
-                        their overall data security posture.
+                        capabilities. As a result, Azayad Retail experienced a
+                        40% reduction in IT-related downtime, a 25% improvement
+                        in employee productivity, and a significant enhancement
+                        in their overall data security posture.
                       </p>
                     </div>
                   </div>

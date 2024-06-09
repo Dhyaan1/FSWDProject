@@ -2,9 +2,13 @@
 import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
+import { AnimatePresence } from "framer-motion";
+import BlogContentShowModal from "../BlogContentShowModal/BlogContentShowModal";
 
 export default function BlogDisplay(props) {
   const [posts, setPosts] = useState<any[] | null>(null);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
   const supabase = createClient();
 
   useEffect(() => {
@@ -13,69 +17,12 @@ export default function BlogDisplay(props) {
       setPosts(data);
     };
     getData();
-    console.log(" Data:" + posts);
   }, []);
-  console.log(" Data:" + posts);
-  console.log(posts);
 
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const blogPosts = posts ? posts : [];
 
-  // const DummyBlogPosts = [
-  //   {
-  //     id: 1,
-  //     title: "Unlocking the Power of Cloud Computing for Your Business",
-  //     excerpt:
-  //       "Discover how cloud computing can revolutionize your business operations and unlock new opportunities for growth and efficiency.",
-  //     author: "John Doe",
-  //     publish_date: "2023-05-15",
-  //     category: "Cloud Computing",
-  //     tags: ["cloud", "technology", "business"],
-  //     content:
-  //       "Cloud computing has become a game-changer in the world of business, offering a wide range of benefits that can transform the way organizations operate. In this blog post, we'll explore the power of cloud computing and how it can unlock new opportunities for your business...",
-  //     image: "/placeholder.svg",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Mastering Cybersecurity: Protecting Your Business from Threats",
-  //     excerpt:
-  //       "Learn effective strategies and best practices to safeguard your business from the ever-evolving landscape of cyber threats.",
-  //     author: "Jane Smith",
-  //     publish_date: "2023-04-20",
-  //     category: "Cybersecurity",
-  //     tags: ["security", "technology", "risk-management"],
-  //     content:
-  //       "In today's digital landscape, cybersecurity has become a critical concern for businesses of all sizes. Cyber threats are constantly evolving, and organizations must stay vigilant to protect their valuable data, systems, and reputation. In this blog post, we'll explore the essential strategies and best practices for mastering cybersecurity and safeguarding your business...",
-  //     image: "/placeholder.svg",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Driving Digital Transformation: Strategies for Success",
-  //     excerpt:
-  //       "Discover proven approaches to successfully navigate the challenges of digital transformation and position your business for long-term growth.",
-  //     author: "Michael Johnson",
-  //     publish_date: "2023-03-10",
-  //     category: "Digital Transformation",
-  //     tags: ["digital-transformation", "technology", "strategy"],
-  //     content:
-  //       "In today's rapidly evolving business landscape, digital transformation has become a crucial driver of success. Companies that embrace the power of technology and digital solutions are poised to gain a competitive edge, improve operational efficiency, and better serve their customers. In this blog post, we'll explore the key strategies and best practices for driving successful digital transformation within your organization...",
-  //     image: "/placeholder.svg",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Leveraging Data Analytics for Informed Decision-Making",
-  //     excerpt:
-  //       "Discover how data analytics can empower your business to make data-driven decisions and gain a competitive advantage.",
-  //     author: "Sarah Lee",
-  //     publish_date: "2023-02-25",
-  //     category: "Data Analytics",
-  //     tags: ["data", "analytics", "decision-making"],
-  //     content:
-  //       "In the age of information, data has become a valuable asset for businesses of all sizes. By harnessing the power of data analytics, organizations can gain valuable insights, make informed decisions, and drive strategic growth. In this blog post, we'll explore the transformative potential of data analytics and how it can empower your business to achieve its goals...",
-  //     image: "/placeholder.svg",
-  //   },
-  // ];
   const filteredPosts = useMemo(() => {
     return blogPosts?.filter((post) => {
       if (
@@ -109,11 +56,23 @@ export default function BlogDisplay(props) {
       setSelectedTags([...selectedTags, tag]);
     }
   };
+  const handlePostClick = (post) => {
+    setSelectedPost(post);
+    setShowModal(true);
+  };
+  const handleModalClose = () => {
+    setShowModal(false);
+    setSelectedPost(null);
+  };
+
   return (
     <section className="bg-gray-100 dark:bg-gray-900 py-12 md:py-16 lg:py-20 min-h-[100dvh]">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="mb-8 md:mb-10 lg:mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-2">
+          <h2
+            id="BlogView"
+            className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-2"
+          >
             Our Latest Insights
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
@@ -205,7 +164,8 @@ export default function BlogDisplay(props) {
               {filteredPosts?.map((post) => (
                 <div
                   key={post?.id}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer"
+                  onClick={() => handlePostClick(post)}
                 >
                   <img
                     src={post?.image ? post?.image : "/placeholder.svg"}
@@ -270,6 +230,14 @@ export default function BlogDisplay(props) {
           </Link>
         )}
       </div>
+      <AnimatePresence>
+        {showModal && (
+          <BlogContentShowModal
+            handleClose={() => handleModalClose()}
+            SelectedPostData={selectedPost}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
