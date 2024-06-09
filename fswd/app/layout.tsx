@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Archivo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -24,7 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${archivo.variable} relative`}>{children}</body>
+      <body className={`${archivo.variable} relative`}>
+        {children}
+        <Analytics /> {/* Using Vercel Ananlytics */}
+      </body>
     </html>
   );
 }
