@@ -75,12 +75,13 @@ export default function NewServiceIntro() {
               </p>
             </div>
             <Link
-              href="/OurServicesInAction"
+              href="/Services"
               target="_blank"
               className="inline-flex items-center text-sm font-medium text-gray-900 hover:underline underline-offset-4 dark:text-gray-50"
               prefetch={false}
             >
-              Learn More <ArrowRightIcon className="ml-1 h-4 w-4" />
+              Learn More About Our Services{" "}
+              <ArrowRightIcon className="ml-1 h-4 w-4" />
             </Link>
           </div>
         </div>
