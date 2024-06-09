@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Archivo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -27,7 +28,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${archivo.variable} relative`}>
         {children}
-        <Analytics /> {/* Using Vercel Ananlytics */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
