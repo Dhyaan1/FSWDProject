@@ -2,6 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 ::-webkit-scrollbar {
   width: 3px;
   background-color: black;
