@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { SubmitButton } from "@/app/login/submit-button";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 
 export default function BlogWrite() {
   const publishPost = async (formData: FormData) => {
@@ -15,8 +16,6 @@ export default function BlogWrite() {
     const Category = formData.get("category") as string;
     const Image = formData.get("image") as File;
     const ImageName = `blog_${Date.now() + Image.name}`;
-    console.log(Title, Author, Excerpt, Content, Tags, Category, Image);
-    console.log("Image name:", Image.name);
 
     const supabase = createClient();
 
@@ -30,8 +29,6 @@ export default function BlogWrite() {
       .from("blog")
       .getPublicUrl(ImageName);
 
-    console.log(URLData.publicUrl);
-
     const { error: insertError } = await supabase.from("posts").insert([
       {
         title: Title,
@@ -44,7 +41,7 @@ export default function BlogWrite() {
       },
     ]);
 
-    revalidatePath("/blogging");
+    revalidatePath("/protected/ProtectedBlogWriting");
     if (insertError) {
       console.error("Error publishing post:", insertError.message);
       return;
@@ -53,11 +50,31 @@ export default function BlogWrite() {
       return;
     }
 
-    return redirect("/protected");
+    return redirect("/protected#BlogView");
   };
 
   return (
     <div className="w-full max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
+      <Link
+        href="/protected"
+        className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>{" "}
+        Back
+      </Link>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -142,12 +159,12 @@ export default function BlogWrite() {
                 name="category"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                <option value="cloud-computing">Cloud Computing</option>
-                <option value="cybersecurity">Cybersecurity</option>
-                <option value="digital-transformation">
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Digital Transformation">
                   Digital Transformation
                 </option>
-                <option value="data-analytics">Data Analytics</option>
+                <option value="Data Analytics">Data Analytics</option>
               </select>
             </div>
             <div className="sm:col-span-6">
@@ -190,8 +207,9 @@ export default function BlogWrite() {
                   className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                   id="image"
                   type="file"
-                  // required
+                  required
                   name="image"
+                  accept="image/png, image/jpeg, image/gif"
                 />
               </div>
             </div>
@@ -199,7 +217,7 @@ export default function BlogWrite() {
           <div className="flex justify-end">
             <SubmitButton
               formAction={publishPost}
-              className="bg-green-700 rounded-md px-4 py-2 text-foreground mb-2"
+              className="bg-[#00b894] text-white rounded-md px-4 py-2 text-foreground mb-2"
               pendingText="Publishing..."
             >
               Publish

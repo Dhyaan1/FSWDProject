@@ -4,8 +4,6 @@ import AuthButton from "@/components/AuthButton";
 
 export default function NavBar() {
   const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
     try {
       createClient();
       return true;
@@ -18,47 +16,42 @@ export default function NavBar() {
 
   return (
     <>
-      <header
-        id="navbar"
-        className="px-4 lg:px-6 h-14 flex items-center bg-gray-900 text-gray-50 dark:bg-gray-950 dark:text-gray-50"
-      >
-        <Link className="flex items-center justify-center" href="#">
-          <MountainIcon className="h-6 w-6" />
-          <span className="sr-only">IT Consultancy Services</span>
+      <header className="sm:max-h-[72px] bg-gray-800 sm:top-0 sm:sticky text-white px-4 lg:px-6 py-4 flex items-center justify-between flex-wrap max-lg:justify-end max-lg:gap-4">
+        <Link
+          href="#ServiceOverall"
+          className="flex items-center gap-2"
+          prefetch={false}
+        >
+          <BriefcaseIcon className="h-6 w-6" />
+          <span className="text-xl font-bold">Azayd IT Consultancy</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Home
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Services
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            About
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Contact
-          </Link>
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex gap-6">
+            <Link href="#BlogView" className="hover:underline" prefetch={false}>
+              Blogs
+            </Link>
+            <Link href="#Services" className="hover:underline" prefetch={false}>
+              Services
+            </Link>
+            <Link href="#AboutUs" className="hover:underline" prefetch={false}>
+              About
+            </Link>
+            <Link
+              href="#ContactUs"
+              className="hover:underline"
+              prefetch={false}
+            >
+              Contact
+            </Link>
+          </div>
           {isSupabaseConnected && <AuthButton />}
-        </nav>
+        </div>
       </header>
     </>
   );
 }
 
-function MountainIcon(props: any) {
+function BriefcaseIcon(props) {
   return (
     <svg
       {...props}
@@ -72,7 +65,8 @@ function MountainIcon(props: any) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      <rect width="20" height="14" x="2" y="6" rx="2" />
     </svg>
   );
 }

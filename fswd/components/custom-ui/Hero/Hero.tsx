@@ -20,13 +20,13 @@ export default function Hero() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link
                     className="inline-flex h-10 items-center justify-center rounded-md bg-[#00b894] px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-[#00b894]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#00b894] disabled:pointer-events-none disabled:opacity-50 dark:bg-[#00b894] dark:text-gray-950 dark:hover:bg-[#00b894]/90 dark:focus-visible:ring-[#00b894]"
-                    href="#"
+                    href="#ContactUs"
                   >
                     Get a Quote
                   </Link>
                   <Link
                     className="inline-flex h-10 items-center justify-center rounded-md border border-[#00b894] bg-transparent px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#00b894]/10 hover:text-[#00b894] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#00b894] disabled:pointer-events-none disabled:opacity-50 dark:border-[#00b894] dark:hover:bg-[#00b894]/10 dark:hover:text-[#00b894] dark:focus-visible:ring-[#00b894]"
-                    href="#"
+                    href="#AboutUs"
                   >
                     Learn More
                   </Link>
@@ -45,7 +45,7 @@ export default function Hero() {
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="space-y-4">
+              <div className="space-y-4" id="ServiceOverall">
                 <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
                   Our Services
                 </div>
@@ -192,7 +192,7 @@ export default function Hero() {
                   <div>
                     <div className="font-semibold">Jane Doe</div>
                     <div className="text-sm text-gray-500 dark:text-gray-400">
-                      CEO, Acme Inc
+                      CEO, Azayad Inc
                     </div>
                   </div>
                 </div>
