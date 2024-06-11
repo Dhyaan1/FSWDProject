@@ -2,8 +2,9 @@
 import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, delay } from "framer-motion";
 import BlogContentShowModal from "../BlogContentShowModal/BlogContentShowModal";
+import { motion } from "framer-motion";
 
 export default function BlogDisplay(props) {
   const [posts, setPosts] = useState<any[] | null>(null);
@@ -65,6 +66,31 @@ export default function BlogDisplay(props) {
     setSelectedPost(null);
   };
 
+  const CardVariants = {
+    initial: { opacity: 0, y: 100 },
+    animate: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.05 * index,
+      },
+    }),
+    hover: {
+      scale: 1.08,
+      transition: {
+        duration: 0.2,
+        ease: "backInOut",
+      },
+    },
+    tap: {
+      scale: 0.9,
+      transition: {
+        duration: 0.2,
+        ease: "backInOut",
+      },
+    },
+  };
+
   return (
     <section className="bg-gray-100 dark:bg-gray-900 py-12 md:py-16 lg:py-20 min-h-[100dvh]">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -87,7 +113,8 @@ export default function BlogDisplay(props) {
                 Categories:
               </h3>
               <div className="flex items-center space-x-4 flex-wrap">
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
                   className={`px-4 py-2 rounded-md transition-colors border border-gray-300 dark:border-gray-700 ${
                     selectedCategories?.length === 0
                       ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100"
@@ -96,16 +123,17 @@ export default function BlogDisplay(props) {
                   onClick={() => setSelectedCategories([])}
                 >
                   All
-                </button>
+                </motion.button>
                 {[
                   "Cloud Computing",
                   "Cybersecurity",
                   "Digital Transformation",
                   "Data Analytics",
                 ]?.map((category) => (
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
                     key={category}
-                    className={`px-4 py-2 rounded-md transition-colors border border-gray-300 dark:border-gray-700 ${
+                    className={`px-4 py-2 m-1 rounded-md transition-colors border border-gray-300 dark:border-gray-700 ${
                       selectedCategories?.includes(category)
                         ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100"
                         : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800"
@@ -113,7 +141,7 @@ export default function BlogDisplay(props) {
                     onClick={() => handleCategorySelect(category)}
                   >
                     {category}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -122,7 +150,8 @@ export default function BlogDisplay(props) {
                 Tags:
               </h3>
               <div className="flex items-center space-x-4 flex-wrap">
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
                   className={`px-4 py-2 rounded-md transition-colors border border-gray-300 dark:border-gray-700 ${
                     selectedTags?.length === 0
                       ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100"
@@ -131,7 +160,7 @@ export default function BlogDisplay(props) {
                   onClick={() => setSelectedTags([])}
                 >
                   All Tags
-                </button>
+                </motion.button>
                 {[
                   "cloud",
                   "technology",
@@ -144,9 +173,10 @@ export default function BlogDisplay(props) {
                   "analytics",
                   "decision-making",
                 ]?.map((tag) => (
-                  <button
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
                     key={tag}
-                    className={`px-4 py-2 rounded-md transition-colors border border-gray-300 dark:border-gray-700 ${
+                    className={`px-4 py-2 m-1 rounded-md transition-colors border border-gray-300 dark:border-gray-700 ${
                       selectedTags?.includes(tag)
                         ? "bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100"
                         : "bg-transparent text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800"
@@ -154,21 +184,27 @@ export default function BlogDisplay(props) {
                     onClick={() => handleTagSelect(tag)}
                   >
                     {tag}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
           </div>
           {filteredPosts?.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-              {filteredPosts?.map((post) => (
-                <div
+              {filteredPosts?.map((post, index) => (
+                <motion.div
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  whileHover="hover"
+                  whileTap="tap"
+                  custom={index}
+                  variants={CardVariants}
                   key={post?.id}
                   className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden cursor-pointer"
                   onClick={() => handlePostClick(post)}
                 >
                   <img
-                    loading="lazy"
                     src={post?.image ? post?.image : "/placeholder.svg"}
                     alt={post?.title}
                     width={640}
@@ -176,9 +212,21 @@ export default function BlogDisplay(props) {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    <motion.h3
+                      initial={{ scale: 0.9 }}
+                      variants={{
+                        hover: {
+                          scale: 1.05,
+                        },
+                      }}
+                      transition={{
+                        duration: 0.2,
+                        ease: "backInOut",
+                      }}
+                      className="origin-top-left text-xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+                    >
                       {post?.title}
-                    </h3>
+                    </motion.h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4">
                       {post?.excerpt}
                     </p>
@@ -188,9 +236,23 @@ export default function BlogDisplay(props) {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {post?.category && (
-                        <div className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-md text-gray-600 dark:text-gray-400">
+                        <motion.div
+                          initial={{ scale: 1 }}
+                          variants={{
+                            hover: {
+                              scale: 1.09,
+                              backgroundColor: "rgba(17 ,24 ,39, 1)",
+                              color: "#fff",
+                            },
+                          }}
+                          transition={{
+                            duration: 0.2,
+                            ease: "backInOut",
+                          }}
+                          className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded-md text-gray-600 dark:text-gray-400"
+                        >
                           {post?.category}
-                        </div>
+                        </motion.div>
                       )}
                       {post?.tags?.map((tag) => (
                         <div
@@ -202,11 +264,11 @@ export default function BlogDisplay(props) {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           ) : (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center h-[30svh]">
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 No blog posts found for the selected category/tags.
               </p>
@@ -217,7 +279,6 @@ export default function BlogDisplay(props) {
           <Link
             href="/protected/ProtectedBlogWriting"
             className="inline-flex items-center text-sm font-medium text-gray-900 hover:underline underline-offset-4 dark:text-gray-50"
-            prefetch={false}
           >
             Write A Blog <ArrowRightIcon className="ml-1 h-4 w-4" />
           </Link>
@@ -225,7 +286,6 @@ export default function BlogDisplay(props) {
           <Link
             href="/login"
             className="inline-flex items-center text-sm font-medium text-gray-900 hover:underline underline-offset-4 dark:text-gray-50"
-            prefetch={false}
           >
             Sign In To Write A Blog <ArrowRightIcon className="ml-1 h-4 w-4" />
           </Link>

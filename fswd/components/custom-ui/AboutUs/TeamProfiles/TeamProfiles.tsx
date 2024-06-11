@@ -1,3 +1,8 @@
+import {
+  FlipYWhenVisible,
+  RotateWhenVisible,
+} from "../../FramerMotionCustomComponents/FramerWrappers";
+
 export default function TeamProfiles() {
   return (
     <>
@@ -24,20 +29,24 @@ export default function TeamProfiles() {
           <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
             <div className="grid gap-4">
               <div className="flex flex-col items-center">
-                <img
-                  loading="lazy"
-                  src="/StockOfficePics/guy1.jpg"
-                  width="150"
-                  height="150"
-                  alt="John Doe"
-                  className="rounded-full w-36 h-36 object-cover"
-                />
-                <div className="text-center space-y-1 mt-4">
-                  <h3 className="text-lg font-bold">John Doe</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    CEO and Founder
-                  </p>
-                </div>
+                <RotateWhenVisible delay={0.2}>
+                  <img
+                    loading="lazy"
+                    src="/StockOfficePics/guy1.jpg"
+                    width="150"
+                    height="150"
+                    alt="John Doe"
+                    className="rounded-full w-36 h-36 object-cover"
+                  />
+                </RotateWhenVisible>
+                <FlipYWhenVisible delay={0.2}>
+                  <div className="text-center space-y-1 mt-4">
+                    <h3 className="text-lg font-bold">John Doe</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      CEO and Founder
+                    </p>
+                  </div>
+                </FlipYWhenVisible>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 John Doe is the CEO and Founder of IT Consultancy Services. With
@@ -48,20 +57,24 @@ export default function TeamProfiles() {
             </div>
             <div className="grid gap-4">
               <div className="flex flex-col items-center">
-                <img
-                  loading="lazy"
-                  src="/StockOfficePics/girl1.jpg"
-                  width="150"
-                  height="150"
-                  alt="Jane Smith"
-                  className="rounded-full w-36 h-36 object-cover"
-                />
-                <div className="text-center space-y-1 mt-4">
-                  <h3 className="text-lg font-bold">Jane Smith</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Chief Technology Officer
-                  </p>
-                </div>
+                <RotateWhenVisible delay={0.4}>
+                  <img
+                    loading="lazy"
+                    src="/StockOfficePics/girl1.jpg"
+                    width="150"
+                    height="150"
+                    alt="Jane Smith"
+                    className="rounded-full w-36 h-36 object-cover"
+                  />
+                </RotateWhenVisible>
+                <FlipYWhenVisible delay={0.4}>
+                  <div className="text-center space-y-1 mt-4">
+                    <h3 className="text-lg font-bold">Jane Smith</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Chief Technology Officer
+                    </p>
+                  </div>
+                </FlipYWhenVisible>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Jane Smith is the Chief Technology Officer at IT Consultancy
@@ -72,20 +85,24 @@ export default function TeamProfiles() {
             </div>
             <div className="grid gap-4">
               <div className="flex flex-col items-center">
-                <img
-                  loading="lazy"
-                  src="/StockOfficePics/guy2.jpg"
-                  width="150"
-                  height="150"
-                  alt="Michael Johnson"
-                  className="rounded-full w-36 h-36 object-cover"
-                />
-                <div className="text-center space-y-1 mt-4">
-                  <h3 className="text-lg font-bold">Michael Johnson</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Head of Consulting
-                  </p>
-                </div>
+                <RotateWhenVisible delay={0.6}>
+                  <img
+                    loading="lazy"
+                    src="/StockOfficePics/guy2.jpg"
+                    width="150"
+                    height="150"
+                    alt="Michael Johnson"
+                    className="rounded-full w-36 h-36 object-cover"
+                  />
+                </RotateWhenVisible>
+                <FlipYWhenVisible delay={0.6}>
+                  <div className="text-center space-y-1 mt-4">
+                    <h3 className="text-lg font-bold">Michael Johnson</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Head of Consulting
+                    </p>
+                  </div>
+                </FlipYWhenVisible>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 Michael Johnson is the Head of Consulting at IT Consultancy

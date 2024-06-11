@@ -1,4 +1,8 @@
 import Link from "next/link";
+import {
+  SlideDownWhenVisible,
+  SlideUpWhenVisible,
+} from "../../FramerMotionCustomComponents/FramerWrappers";
 
 export default function NewServiceIntro() {
   return (
@@ -26,54 +30,67 @@ export default function NewServiceIntro() {
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Cloud Migration</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                We help businesses seamlessly migrate their infrastructure and
-                applications to the cloud, ensuring maximum uptime and security.
-              </p>
-            </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Cybersecurity</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Our team of security experts provides comprehensive solutions to
-                protect your business from cyber threats and ensure compliance
-                with industry regulations.
-              </p>
-            </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Enterprise Software</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                We help businesses select, implement, and optimize
-                enterprise-level software solutions to streamline operations and
-                drive productivity.
-              </p>
-            </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Digital Transformation</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Our consultants work with you to develop a comprehensive digital
-                transformation strategy, leveraging the latest technologies to
-                help your business stay ahead of the curve.
-              </p>
-            </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">IT Strategy</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                We help businesses align their technology investments with their
-                overall business goals, ensuring that IT supports and enables
-                growth.
-              </p>
-            </div>
-            <div className="grid gap-1">
-              <h3 className="text-lg font-bold">Managed IT Services</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Our team of IT experts provides comprehensive managed services,
-                including helpdesk support, network management, and
-                infrastructure maintenance, to keep your business running
-                smoothly.
-              </p>
-            </div>
+            <SlideDownWhenVisible delay={0.2}>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Cloud Migration</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  We help businesses seamlessly migrate their infrastructure and
+                  applications to the cloud, ensuring maximum uptime and
+                  security.
+                </p>
+              </div>
+            </SlideDownWhenVisible>
+            <SlideDownWhenVisible delay={0.4}>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Cybersecurity</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Our team of security experts provides comprehensive solutions
+                  to protect your business from cyber threats and ensure
+                  compliance with industry regulations.
+                </p>
+              </div>
+            </SlideDownWhenVisible>
+            <SlideDownWhenVisible delay={0.6}>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Enterprise Software</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  We help businesses select, implement, and optimize
+                  enterprise-level software solutions to streamline operations
+                  and drive productivity.
+                </p>
+              </div>
+            </SlideDownWhenVisible>
+            <SlideUpWhenVisible delay={0.8}>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Digital Transformation</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Our consultants work with you to develop a comprehensive
+                  digital transformation strategy, leveraging the latest
+                  technologies to help your business stay ahead of the curve.
+                </p>
+              </div>
+            </SlideUpWhenVisible>
+            <SlideUpWhenVisible delay={1}>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">IT Strategy</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  We help businesses align their technology investments with
+                  their overall business goals, ensuring that IT supports and
+                  enables growth.
+                </p>
+              </div>
+            </SlideUpWhenVisible>
+            <SlideUpWhenVisible delay={1.2}>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Managed IT Services</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Our team of IT experts provides comprehensive managed
+                  services, including helpdesk support, network management, and
+                  infrastructure maintenance, to keep your business running
+                  smoothly.
+                </p>
+              </div>
+            </SlideUpWhenVisible>
             <Link
               href="/Services"
               target="_blank"

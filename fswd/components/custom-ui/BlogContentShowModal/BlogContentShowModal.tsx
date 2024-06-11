@@ -6,14 +6,14 @@ const SlideUp = {
     y: 100,
     opacity: 0,
     transition: {
-      delay: 0.3,
+      delay: 0.4,
     },
   },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.3,
+      duration: 0.4,
     },
   },
   exit: {
@@ -35,15 +35,10 @@ export default function BlogContentShowModal({
         variants={SlideUp}
         initial="hidden"
         animate="visible"
-        transition={{
-          duration: 0.5,
-          delay: 0,
-        }}
         exit="exit"
         className="overflow-hidden w-full max-w-3xl max-md:max-w-xl max-sm:max-w-md max-sm:max-h-[97svh] rounded-3xl bg-white border border-gray-200 shadow-md"
       >
         <img
-          loading="lazy"
           src={
             SelectedPostData?.image
               ? SelectedPostData?.image

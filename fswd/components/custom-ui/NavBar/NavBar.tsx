@@ -16,7 +16,7 @@ export default function NavBar() {
 
   return (
     <>
-      <header className="sm:max-h-[72px] bg-gray-800 sm:top-0 sm:sticky text-white px-4 lg:px-6 py-4 flex items-center justify-between flex-wrap max-lg:justify-end max-lg:gap-4">
+      <header className="z-[50] sm:max-h-[72px] bg-gray-800 sm:top-0 sm:sticky text-white px-4 lg:px-6 py-4 flex items-center justify-between flex-wrap max-lg:justify-end max-lg:gap-4">
         <Link
           href="#ServiceOverall"
           className="flex items-center gap-2"

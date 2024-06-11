@@ -3,6 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 import { SubmitButton } from "@/app/login/submit-button";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { FlipXWhenVisible } from "../FramerMotionCustomComponents/FramerWrappers";
 
 export default function ContactUs() {
   const contact = async (formData: FormData) => {
@@ -128,7 +129,9 @@ export default function ContactUs() {
         <div className="space-y-6">
           <div className="space-y-4">
             <div className="flex items-center gap-4">
-              <PhoneIcon className="min-h-6 min-w-6 text-gray-500 dark:text-gray-400" />
+              <FlipXWhenVisible delay={0.2}>
+                <PhoneIcon className="min-h-6 min-w-6 text-gray-500 dark:text-gray-400" />
+              </FlipXWhenVisible>
               <div>
                 <h3 className="text-lg font-semibold">Phone</h3>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -137,7 +140,9 @@ export default function ContactUs() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <MailIcon className="min-h-6 min-w-6 text-gray-500 dark:text-gray-400" />
+              <FlipXWhenVisible delay={0.4}>
+                <MailIcon className="min-h-6 min-w-6 text-gray-500 dark:text-gray-400" />
+              </FlipXWhenVisible>
               <div>
                 <h3 className="text-lg font-semibold">Email</h3>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -146,7 +151,9 @@ export default function ContactUs() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <MapPinIcon className="min-h-6 min-w-6 text-gray-500 dark:text-gray-400" />
+              <FlipXWhenVisible delay={0.6}>
+                <MapPinIcon className="min-h-6 min-w-6 text-gray-500 dark:text-gray-400" />
+              </FlipXWhenVisible>
               <div>
                 <h3 className="text-lg font-semibold">Address</h3>
                 <p className="text-gray-500 dark:text-gray-400">
@@ -164,8 +171,10 @@ export default function ContactUs() {
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              <FacebookIcon className="h-6 w-6" />
-              <span className="sr-only">Facebook</span>
+              <FlipXWhenVisible delay={0.8}>
+                <FacebookIcon className="h-6 w-6" />
+                <span className="sr-only">Facebook</span>
+              </FlipXWhenVisible>
             </Link>
             <Link
               href="https://www.varconstech.com/"
@@ -173,8 +182,10 @@ export default function ContactUs() {
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              <TwitterIcon className="h-6 w-6" />
-              <span className="sr-only">Twitter</span>
+              <FlipXWhenVisible delay={1}>
+                <TwitterIcon className="h-6 w-6" />
+                <span className="sr-only">Twitter</span>
+              </FlipXWhenVisible>
             </Link>
             <Link
               href="https://www.linkedin.com/company/varcons-technologies/?originalSubdomain=in"
@@ -182,8 +193,10 @@ export default function ContactUs() {
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              <LinkedinIcon className="h-6 w-6" />
-              <span className="sr-only">LinkedIn</span>
+              <FlipXWhenVisible delay={1.2}>
+                <LinkedinIcon className="h-6 w-6" />
+                <span className="sr-only">LinkedIn</span>
+              </FlipXWhenVisible>
             </Link>
             <Link
               href="https://www.varconstech.com/"
@@ -191,11 +204,13 @@ export default function ContactUs() {
               className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               prefetch={false}
             >
-              <InstagramIcon className="h-6 w-6" />
-              <span className="sr-only">Instagram</span>
+              <FlipXWhenVisible delay={1.4}>
+                <InstagramIcon className="h-6 w-6" />
+                <span className="sr-only">Instagram</span>
+              </FlipXWhenVisible>
             </Link>
           </div>
-          <div className="max-sm:hidden aspect-auto overflow-hidden rounded-lg">
+          <div className="flex items-center justify-center max-sm:hidden aspect-auto overflow-hidden rounded-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.9996906311549!2d77.61849837279289!3d12.97193068565948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae178733bc3b23%3A0x5d4ec18559b11d62!2sVarcons%20Tech%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1717530687042!5m2!1sen!2sin"
               width="600"
@@ -207,11 +222,11 @@ export default function ContactUs() {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          <div className="sm:hidden max-sm:block aspect-auto overflow-hidden rounded-lg">
+          <div className="hidden max-sm:flex max-sm:items-center max-sm:justify-center aspect-auto overflow-hidden rounded-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d971.9996906311549!2d77.61849837279289!3d12.97193068565948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae178733bc3b23%3A0x5d4ec18559b11d62!2sVarcons%20Tech%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1717530687042!5m2!1sen!2sin"
-              width="400"
-              height="750"
+              width="500"
+              height="650"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"

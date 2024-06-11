@@ -6,10 +6,17 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import Link from "next/link";
+import {
+  FadeInWhenVisible,
+  SlideRightWhenVisible,
+} from "../FramerMotionCustomComponents/FramerWrappers";
 
 export default function CareerDisplay() {
   return (
-    <div id="Careers" className="w-full bg-gray-100 dark:bg-gray-800 py-12 md:py-24 lg:py-32">
+    <div
+      id="Careers"
+      className="w-full bg-gray-100 dark:bg-gray-800 py-12 md:py-24 lg:py-32"
+    >
       <div className="container px-4 md:px-6">
         <div className="space-y-8 md:space-y-12">
           <div>
@@ -28,71 +35,77 @@ export default function CareerDisplay() {
               Job Openings
             </h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Senior Software Engineer</CardTitle>
-                  <CardDescription>
-                    We're looking for an experienced software engineer to join
-                    our team and help us build cutting-edge solutions for our
-                    clients. You'll be responsible for designing and
-                    implementing complex software systems, as well as mentoring
-                    junior developers. Strong experience with React.js, Node.js,
-                    and cloud technologies is a must.
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <Link
-                    href="#HowToApply"
-                    className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                  >
-                    Apply Now
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Project Manager</CardTitle>
-                  <CardDescription>
-                    We're seeking an experienced project manager to lead our
-                    client engagements. You'll be responsible for coordinating
-                    cross-functional teams, managing project timelines and
-                    budgets, and ensuring successful delivery of our IT
-                    consulting services. Strong communication and
-                    problem-solving skills are a must.
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <Link
-                    href="#HowToApply"
-                    className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                    prefetch={false}
-                  >
-                    Apply Now
-                  </Link>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Business Analyst</CardTitle>
-                  <CardDescription>
-                    We're seeking a talented business analyst to join our team
-                    and help our clients identify their technology needs and
-                    develop effective solutions. You'll be responsible for
-                    conducting market research, gathering requirements, and
-                    creating detailed business cases. Strong analytical and
-                    communication skills are a must.
-                  </CardDescription>
-                </CardHeader>
-                <CardFooter>
-                  <Link
-                    href="#HowToApply"
-                    className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                    prefetch={false}
-                  >
-                    Apply Now
-                  </Link>
-                </CardFooter>
-              </Card>
+              <FadeInWhenVisible delay={0.2}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Senior Software Engineer</CardTitle>
+                    <CardDescription>
+                      We're looking for an experienced software engineer to join
+                      our team and help us build cutting-edge solutions for our
+                      clients. You'll be responsible for designing and
+                      implementing complex software systems, as well as
+                      mentoring junior developers. Strong experience with
+                      React.js, Node.js, and cloud technologies is a must.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <Link
+                      href="#HowToApply"
+                      className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                    >
+                      Apply Now
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </FadeInWhenVisible>
+              <FadeInWhenVisible delay={0.4}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Project Manager</CardTitle>
+                    <CardDescription>
+                      We're seeking an experienced project manager to lead our
+                      client engagements. You'll be responsible for coordinating
+                      cross-functional teams, managing project timelines and
+                      budgets, and ensuring successful delivery of our IT
+                      consulting services. Strong communication and
+                      problem-solving skills are a must.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <Link
+                      href="#HowToApply"
+                      className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                      prefetch={false}
+                    >
+                      Apply Now
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </FadeInWhenVisible>
+              <FadeInWhenVisible delay={0.6}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Business Analyst</CardTitle>
+                    <CardDescription>
+                      We're seeking a talented business analyst to join our team
+                      and help our clients identify their technology needs and
+                      develop effective solutions. You'll be responsible for
+                      conducting market research, gathering requirements, and
+                      creating detailed business cases. Strong analytical and
+                      communication skills are a must.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardFooter>
+                    <Link
+                      href="#HowToApply"
+                      className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                      prefetch={false}
+                    >
+                      Apply Now
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </FadeInWhenVisible>
             </div>
           </div>
           <div>
@@ -100,46 +113,54 @@ export default function CareerDisplay() {
               Company Culture
             </h3>
             <div className="mt-6 max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 grid gap-6">
-              <div className="flex items-start gap-4">
-                <WalletIcon className="w-6 h-6 text-primary" />
-                <div>
-                  <h4 className="font-semibold">Competitive Compensation</h4>
-                  <p>
-                    We offer competitive salaries and bonuses to attract and
-                    retain top talent.
-                  </p>
+              <SlideRightWhenVisible delay={0.2}>
+                <div className="flex items-start gap-4">
+                  <WalletIcon className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">Competitive Compensation</h4>
+                    <p>
+                      We offer competitive salaries and bonuses to attract and
+                      retain top talent.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <ShieldCheckIcon className="w-6 h-6 text-primary" />
-                <div>
-                  <h4 className="font-semibold">Comprehensive Benefits</h4>
-                  <p>
-                    Our comprehensive health insurance and retirement plans
-                    ensure your well-being.
-                  </p>
+              </SlideRightWhenVisible>
+              <SlideRightWhenVisible delay={0.4}>
+                <div className="flex items-start gap-4">
+                  <ShieldCheckIcon className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">Comprehensive Benefits</h4>
+                    <p>
+                      Our comprehensive health insurance and retirement plans
+                      ensure your well-being.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <BriefcaseIcon className="w-6 h-6 text-primary" />
-                <div>
-                  <h4 className="font-semibold">Professional Development</h4>
-                  <p>
-                    We invest in your growth by providing access to
-                    industry-leading training and conferences.
-                  </p>
+              </SlideRightWhenVisible>
+              <SlideRightWhenVisible delay={0.6}>
+                <div className="flex items-start gap-4">
+                  <BriefcaseIcon className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">Professional Development</h4>
+                    <p>
+                      We invest in your growth by providing access to
+                      industry-leading training and conferences.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <UsersIcon className="w-6 h-6 text-primary" />
-                <div>
-                  <h4 className="font-semibold">Collaborative Culture</h4>
-                  <p>
-                    We believe in fostering a supportive and empowering work
-                    environment where everyone can thrive.
-                  </p>
+              </SlideRightWhenVisible>
+              <SlideRightWhenVisible delay={0.8}>
+                <div className="flex items-start gap-4">
+                  <UsersIcon className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">Collaborative Culture</h4>
+                    <p>
+                      We believe in fostering a supportive and empowering work
+                      environment where everyone can thrive.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </SlideRightWhenVisible>
             </div>
           </div>
           <div>
