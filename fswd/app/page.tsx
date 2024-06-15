@@ -21,7 +21,7 @@ export default async function page() {
   }
   return (
     <>
-      <div className="flex flex-col min-h-[100dvh]">
+      <div className="flex flex-col min-h-[100dvh] overflow-x-hidden">
         <NavBar />
         <Hero />
         <AboutUs />
